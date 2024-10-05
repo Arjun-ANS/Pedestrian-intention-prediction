@@ -496,15 +496,6 @@ class JAAD(object):
         print("Generating database for jaad")
 
         # Generates a list of behavioral xml file names for  videos
-        cache_file = join(self.cache_path, 'jaad_database.pkl')
-        if exists(cache_file) and not self._regen_pkl:
-            with open(cache_file, 'rb') as fid:
-                try:
-                    database = pickle.load(fid)
-                except:
-                    database = pickle.load(fid, encoding='bytes')
-            print('jaad database loaded from {}'.format(cache_file))
-            return database
 
         video_ids = sorted(self._get_video_ids())
         database = {}
