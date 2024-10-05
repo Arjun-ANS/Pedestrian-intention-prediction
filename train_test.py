@@ -42,7 +42,7 @@ def run(config_file=None):
     """
     print(config_file)
     # Read default Config file
-    configs_default ='/kaggle/input/pedest3/config_files/configs_default.yaml'
+    configs_default ='/kaggle/input/pedest4/config_files/configs_default.yaml'
     with open(configs_default, 'r') as f:
         configs = yaml.safe_load(f)
 
@@ -90,7 +90,7 @@ def run(config_file=None):
 
         #if configs['model_opts']['dataset'] == 'pie':
          #   imdb = PIE(data_path=os.environ.copy()['PIE_PATH'])
-        imdb = JAAD(data_path="\kaggle\input\jaad-train-test")
+        imdb = JAAD(data_path="/kaggle/input/jaad-train-test")
 
         # get sequences
         beh_seq_train = imdb.generate_data_trajectory_sequence('train', **configs['data_opts'])
