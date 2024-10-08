@@ -109,9 +109,9 @@ class ActionPredict(object):
             for imp, b, p in zip(seq, bbox_seq[i], pid):
                 flip_image = False
                 print(imp)
-                set_id = imp.split('\\')[-3]
-                vid_id = imp.split('\\')[-2]
-                img_name = imp.split('\\')[-1].split('.')[0]
+                set_id = imp.split('/')[-3]
+                vid_id = imp.split('/')[-2]
+                img_name = imp.split('/')[-1].split('.')[0]
                 img_save_folder = os.path.join(save_path, set_id, vid_id)
 
                 # Modify the path depending on crop mode
