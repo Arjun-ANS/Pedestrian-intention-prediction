@@ -104,9 +104,11 @@ class ActionPredict(object):
         i = -1
         for seq, pid in zip(img_sequences, ped_ids):
             i += 1
+            #print("entered first for loop")
             update_progress(i / len(img_sequences))
             img_seq = []
             for imp, b, p in zip(seq, bbox_seq[i], pid):
+                #print("entered second loop")
                 flip_image = False
                 print(imp)
                 set_id = imp.split('/')[-3]

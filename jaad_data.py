@@ -43,7 +43,7 @@ import numpy as np
 import xml.etree.ElementTree as ET
 
 from os.path import join, abspath, exists
-from os import listdir, makedirs, makedir
+from os import listdir, makedirs
 from sklearn.model_selection import train_test_split, KFold
 
 
