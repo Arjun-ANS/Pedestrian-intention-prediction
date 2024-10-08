@@ -43,7 +43,7 @@ import numpy as np
 import xml.etree.ElementTree as ET
 
 from os.path import join, abspath, exists
-from os import listdir, makedirs
+from os import listdir, makedirs, makedir
 from sklearn.model_selection import train_test_split, KFold
 
 
@@ -497,14 +497,7 @@ class JAAD(object):
 
         # Generates a list of behavioral xml file names for  videos
         cache_file =  "/kaggle/working/data_cache/jaad_database.pkl"
-        if exists(cache_file) and not self._regen_pkl:
-            with open(cache_file, 'rb') as fid:
-                try:
-                    database = pickle.load(fid)
-                except:
-                    database = pickle.load(fid, encoding='bytes')
-            print('jaad database loaded from {}'.format(cache_file))
-            return database
+
         video_ids = sorted(self._get_video_ids())
         database = {}
         for vid in video_ids:
@@ -529,10 +522,18 @@ class JAAD(object):
                     vid_annotations['ped_annotations'][ped]['appearance'] = {}
 
             database[vid] = vid_annotations
-
-        with open(cache_file, 'wb') as fid:
-            pickle.dump(database, fid, pickle.HIGHEST_PROTOCOL)
-        print('The database is written to {}'.format(cache_file))
+        try:
+            if (exists(cache_file)):
+                with open(cache_file, 'wb') as fid:
+                    pickle.dump(database, fid, pickle.HIGHEST_PROTOCOL)
+                print('The database is written to {}'.format(cache_file))
+            else:
+                makedir(cache_file)
+                with open(cache_file, 'wb') as fid:
+                    pickle.dump(database, fid, pickle.HIGHEST_PROTOCOL)
+                print('The database is written to {}'.format(cache_file))
+        finally:
+            print("hello pickle not possible")
 
         return database
 
