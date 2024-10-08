@@ -520,7 +520,7 @@ class ActionPredict(object):
             if 'local_context' in feature_type or 'surround' in feature_type:
                 save_folder_name = '_'.join([save_folder_name, str(eratio)])
         data_gen_params['save_path'], _ = get_path(save_folder=save_folder_name,
-                                                   dataset=dataset, save_root_folder='data/features')
+                                                   dataset=dataset, save_root_folder='/kaggle/working/data/features')
         if 'flow' in feature_type:
             return self.get_optical_flow(data['image'],
                                          data['box_org'],
@@ -738,8 +738,8 @@ class ActionPredict(object):
         learning_scheduler = learning_scheduler or {}
         # Set the path for saving models
         model_folder_name = time.strftime("%d%b%Y-%Hh%Mm%Ss")
-        path_params = {'save_folder': os.path.join(self.__class__.__name__, model_folder_name),
-                       'save_root_folder': 'data/models/',
+        path_params = {'save_folder': os.path.join('/kaggle/working/', model_folder_name),
+                       'save_root_folder': '/kaggle/working/data/models/',
                        'dataset': model_opts['dataset']}
         model_path, _ = get_path(**path_params, file_name='model.h5')
 

@@ -312,7 +312,7 @@ def get_path(file_name='',
              sub_folder='',
              save_folder='models',
              dataset='pie',
-             save_root_folder='data/'):
+             save_root_folder='kaggle/working/data/'):
     """
     Generates paths for saving model and config data.
     Args:
