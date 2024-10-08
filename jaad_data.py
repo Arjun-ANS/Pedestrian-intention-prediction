@@ -496,7 +496,7 @@ class JAAD(object):
         print("Generating database for jaad")
 
         # Generates a list of behavioral xml file names for  videos
-        cache_file = self.cache_path()+ "data_cache/jaad_database.pkl"
+        cache_file = self.cache_path + "data_cache/jaad_database.pkl"
         if exists(cache_file) and not self._regen_pkl:
             with open(cache_file, 'rb') as fid:
                 try:
