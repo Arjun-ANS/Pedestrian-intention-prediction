@@ -524,17 +524,7 @@ class JAAD(object):
                     vid_annotations['ped_annotations'][ped]['appearance'] = {}
 
             database[vid] = vid_annotations
-        try:
-            if (exists(cache_file)):
-                with open(cache_file, 'wb') as fid:
-                    pickle.dump(database, fid, pickle.HIGHEST_PROTOCOL)
-                print('The database is written to {}'.format(cache_file))
-            else:
-                with open(cache_file, 'wb') as fid:
-                    pickle.dump(database, fid, pickle.HIGHEST_PROTOCOL)
-                print('The database is written to {}'.format(cache_file))
-        finally:
-            print("hello pickle not possible")
+
 
         return database
 
