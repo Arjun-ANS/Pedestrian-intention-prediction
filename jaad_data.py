@@ -528,7 +528,7 @@ class JAAD(object):
                     pickle.dump(database, fid, pickle.HIGHEST_PROTOCOL)
                 print('The database is written to {}'.format(cache_file))
             else:
-                makedir(cache_file)
+                makedirs(cache_file)
                 with open(cache_file, 'wb') as fid:
                     pickle.dump(database, fid, pickle.HIGHEST_PROTOCOL)
                 print('The database is written to {}'.format(cache_file))
