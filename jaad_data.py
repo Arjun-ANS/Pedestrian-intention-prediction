@@ -496,8 +496,10 @@ class JAAD(object):
         print("Generating database for jaad")
 
         # Generates a list of behavioral xml file names for  videos
-        cache_file =  "/kaggle/working/data_cache/jaad_database.pkl"
 
+        cache_dir = '/kaggle/working/data_cache/'
+        makedirs(cache_dir, exist_ok=True)
+        cache_file = join(cache_dir, 'jaad_database.pkl')
         video_ids = sorted(self._get_video_ids())
         database = {}
         for vid in video_ids:
@@ -528,7 +530,6 @@ class JAAD(object):
                     pickle.dump(database, fid, pickle.HIGHEST_PROTOCOL)
                 print('The database is written to {}'.format(cache_file))
             else:
-                makedirs(cache_file)
                 with open(cache_file, 'wb') as fid:
                     pickle.dump(database, fid, pickle.HIGHEST_PROTOCOL)
                 print('The database is written to {}'.format(cache_file))
