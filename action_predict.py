@@ -110,6 +110,7 @@ class ActionPredict(object):
             for imp, b, p in zip(seq, bbox_seq[i], pid):
                 #print("entered second loop")
                 flip_image = False
+                imp = imp[:-3] + 'jpg'
                 print(imp)
                 set_id = imp.split('/')[-3]
                 vid_id = imp.split('/')[-2]
