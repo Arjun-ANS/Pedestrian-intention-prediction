@@ -111,7 +111,7 @@ class ActionPredict(object):
                 #print("entered second loop")
                 flip_image = False
                 imp = imp[:-3] + 'jpg'
-                print(imp)
+                #print(imp)
                 set_id = imp.split('/')[-3]
                 vid_id = imp.split('/')[-2]
                 img_name = imp.split('/')[-1].split('.')[0]
@@ -137,20 +137,20 @@ class ActionPredict(object):
                         flip_image = True
                     if crop_type == 'none':
                         img_data = cv2.imread(imp)
-                        print(img_data)
+                        #print(img_data)
                         img_features = cv2.resize(img_data, target_dim)
                         if flip_image:
                             img_features = cv2.flip(img_features, 1)
                     else:
                         img_data = cv2.imread(imp)
-                        print(img_data)
+                        #print(img_data)
                         if flip_image:
-                            print("entered flipping", img_data)
+                            #print("entered flipping", img_data)
                             img_data = cv2.flip(img_data, 1)
-                            print(img_data)
+                            #print(img_data)
                         if crop_type == 'bbox':
                             b = list(map(int, b[0:4]))
-                            print(img_data)
+                            #print(img_data)
                             cropped_image = img_data[b[1]:b[3], b[0]:b[2], :]
                             img_features = img_pad(cropped_image, mode=crop_mode, size=target_dim[0])
                         elif 'context' in crop_type:
