@@ -55,12 +55,13 @@ def get_pose(img_sequences,
     set_poses_list = [x for x in os.listdir(file_path) if x.endswith('.pkl')]
     set_poses = {}
     for s in set_poses_list:
+        print(s)
         with open(os.path.join(file_path, s), 'rb') as fid:
             try:
                 p = pickle.load(fid)
             except:
                 p = pickle.load(fid, encoding='bytes')
-        set_poses[s.split('.pkl')[0].split('_')[-1]] = p
+        set_poses['set01'] = p
     i = -1
     for seq, pid in zip(img_sequences, ped_ids):
         i += 1

@@ -16,7 +16,7 @@ model_opts:
   fusion_method: sum # only for Two-Stream network
 data_opts:
   fstride: 1
-  sample_type: beh  # beh or all only when model_opts/dataset is set to jaad
+  sample_type: beh  # beh or aasdfsll only when model_opts/dataset is set to jaad
   subset: default
   data_split_type: default  # kfold, random, default
   seq_type: crossing
