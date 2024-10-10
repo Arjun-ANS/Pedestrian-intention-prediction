@@ -52,7 +52,9 @@ def get_pose(img_sequences,
     print('Getting poses %s' % data_type)
     print('#####################################')
     poses_all = []
+    print(file_path)
     set_poses_list = [x for x in os.listdir(file_path) if x.endswith('.pkl')]
+    print(set_poses_list)
     set_poses = {}
     for s in set_poses_list:
         print(s)
@@ -81,6 +83,11 @@ def get_pose(img_sequences,
                 img_name = img_name.replace('_flip', '')
                 flip_image = True
             k = img_name + '_' + p[0]
+            print(len(list(set_poses[set_id].keys())))
+            if vid_id in set_poses[set_id]:
+                print("yes its there")
+            else:
+                print("how")
             if k in set_poses[set_id][vid_id].keys():
                 # [nose, neck, Rsho, Relb, Rwri, Lsho, Lelb, Lwri, Rhip, Rkne,
                 #  Rank, Lhip, Lkne, Lank, Leye, Reye, Lear, Rear, pt19]
@@ -312,7 +319,7 @@ def bbox_sanity_check(img_size, bbox):
 def get_path(file_name='',
              sub_folder='',
              save_folder='models',
-             dataset='pie',
+             dataset='jaad',
              save_root_folder='kaggle/working/data/'):
     """
     Generates paths for saving model and config data.

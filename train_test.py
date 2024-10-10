@@ -42,7 +42,7 @@ def run(config_file=None):
     """
     print(config_file)
     # Read default Config file
-    configs_default ='/kaggle/input/pedest26/config_files/configs_default.yaml'
+    configs_default ='/kaggle/input/pedest27/config_files/configs_default.yaml'
     with open(configs_default, 'r') as f:
         configs = yaml.safe_load(f)
 
