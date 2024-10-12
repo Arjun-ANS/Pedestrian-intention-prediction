@@ -36,7 +36,7 @@ def flip_pose(pose):
 def get_pose(img_sequences,
              ped_ids, file_path,
              data_type='train',
-             dataset='pie'):
+             dataset='jaad'):
     """
     Reads the pie poses from saved .pkl files
     Args:
@@ -58,7 +58,7 @@ def get_pose(img_sequences,
     set_poses = {}
     for s in set_poses_list:
         print(s)
-        with open(os.path.join('/kaggle/input/pedest28/'+file_path, s), 'rb') as fid:
+        with open(os.path.join('/kaggle/input/pedest28/data/features/jaad/poses','pose_set01.pkl'),'rb') as fid:
             try:
                 p = pickle.load(fid)
             except:
@@ -320,7 +320,7 @@ def get_path(file_name='',
              sub_folder='',
              save_folder='models',
              dataset='jaad',
-             save_root_folder='kaggle/working/data/'):
+             save_root_folder='/kaggle/working/data/features'):
     """
     Generates paths for saving model and config data.
     Args:

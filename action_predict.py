@@ -3094,7 +3094,7 @@ class PCPA(ActionPredict):
             elif 'pose' in d_type:
                 path_to_pose, _ = get_path(save_folder='poses',
                                            dataset=dataset,
-                                           save_root_folder='data/features')
+                                           save_root_folder='/kaggle/working/data/features/')
                 features = get_pose(data['image'],
                                     data['ped_id'],
                                     data_type=data_type,
