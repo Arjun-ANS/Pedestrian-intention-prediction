@@ -58,7 +58,7 @@ def get_pose(img_sequences,
     set_poses = {}
     for s in set_poses_list:
         print(s)
-        with open(os.path.join('/kaggle/input/pedest28/data/features/jaad/poses','pose_set01.pkl'),'rb') as fid:
+        with open(os.path.join('/kaggle/input/pedest29/data/features/jaad/poses','pose_set01.pkl'),'rb') as fid:
             try:
                 p = pickle.load(fid)
             except:
